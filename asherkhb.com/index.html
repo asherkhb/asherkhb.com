@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>asherkhb.com</title>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+</head>
+
+<body>
+    <script src="js/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+
+            // Introductory animation
+            var startTiles = ['#block1', '#block2', '#block3', '#block4'];
+            var startDelay = 400;
+            var textContent = ['.txt'];
+            var textDelay = 400;
+            var socialLinks = ['#fb', '#gp', '#li', '#gh'];
+            var socialDelay = 85;
+
+            startTiles.forEach(function(tile, i1) {
+                $(tile).delay(i1 * startDelay).fadeTo(startDelay, 0.7, "swing");
+            });
+
+            textContent.forEach(function(entry, i2) {
+                $(entry).delay(startTiles.length * startDelay).delay(i2 * textDelay).fadeTo(textDelay, 1, "swing");
+            });
+
+            socialLinks.forEach(function(link, i3) {
+                $(link).delay((startTiles.length * startDelay) + (textContent.length * textDelay)).delay(i3 * socialDelay).fadeTo(socialDelay, 0.7, "swing");
+            });
+
+            // Add hover animation between 0.7 and 1 opacity.
+            var hoverable = [$("#block1"), $("#block2"), $("#block3"), $("#block4"),
+                $("#fb"), $("#gp"), $("#li"), $("#gh")];
+            $.each(hoverable, function(index, value) {
+                $(value).hover(
+                    function() {$(value).fadeTo(100, 1, "swing");},
+                    function() {$(value).fadeTo(100, 0.7, "swing");})
+            });
+
+            // Add social hover animation between grey and network color.
+            var socialHover = {"#fb":"#3b5998", "#gp":"#dd4b39", "#li":"#0077B5", "#gh": "black"};
+            $.each(socialHover, function(key, value) {
+                $(key).hover(
+                    function() {$(key).css("fill", value);},
+                    function() {$(key).css("fill", "#666666");}
+                )
+            });
+        });
+    </script>
+
+    <div class="start">
+        <div>
+            <img class="start_block" id="block1" src="img/rodeo.jpg" />
+            <img class="start_block" id="block2" src="img/leaves.jpg" />
+        </div>
+        <div>
+            <img class="start_block" id="block3" src="img/tie.jpg" />
+            <img class="start_block" id="block4" src="img/sunset.jpg" />
+        </div>
+    </div>
+
+    <div class="txt">
+        <h1 id="name">Asher Baltzell</h1>
+        <h2 id="about">biologist &#9900; data scientist &#9900; friend</h2>
+    </div>
+
+    <div class="social">
+        <!-- Facebook Icon/Link -->
+        <a href="https://www.facebook.com/baltzell">
+            <svg id="fb" class="icon" xmlns="http://www.w3.org/2000/svg"
+                 version="1.1" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M19,4V7H17A1,1 0 0,0 16,8V10H19V13H16V20H13V13H11V10H13V7.5C13,5.56 14.57,4 16.5,4M20,2H4A2,
+                2 0 0,0 2,4V20A2,2 0 0,0 4,22H20A2,2 0 0,0 22,20V4C22,2.89 21.1,2 20,2Z"></path>
+            </svg>
+        </a>
+
+        <!-- Google+ Icon/Link -->
+        <a href="https://plus.google.com/+AsherHaugBaltzell/">
+            <svg id="gp" class="icon" xmlns="http://www.w3.org/2000/svg"
+                 version="1.1" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M19,12H17V14H16V12H14V11H16V9H17V11H19M9.07,19.2C6.27,19.2 5,17.64 5,16.18C5,15.73 5.14,
+                14.59 6.5,13.8C7.25,13.33 8.33,13 9.62,12.89C9.43,12.64 9.28,12.34 9.28,11.9C9.28,11.75 9.3,11.59 9.34,
+                11.44H8.95C7,11.44 5.8,9.89 5.8,8.39C5.8,6.66 7.09,4.8 9.91,4.8H14.13L13.79,5.14L13.08,5.85L13,
+                5.91H12.3C12.71,6.33 13.2,7 13.2,8.07C13.2,9.47 12.46,10.16 11.64,10.8C11.5,10.92 11.22,11.18 11.22,
+                11.5C11.22,11.82 11.46,12 11.61,12.14C11.74,12.25 11.9,12.36 12.08,12.5C12.89,13.05 14,13.83 14,15.36C14,
+                17.13 12.71,19.2 9.07,19.2M20,2H4A2,2 0 0,0 2,4V20A2,2 0 0,0 4,22H20A2,2 0 0,0 22,20V4C22,2.89 21.1,2 20,
+                2M10.57,13.81C10.46,13.8 10.38,13.8 10.25,13.8H10.23C9.97,13.8 9.08,13.85 8.41,14.07C7.77,14.31 7,14.79 7,
+                15.77C7,16.85 8.04,18 9.96,18C11.5,18 12.4,17 12.4,16C12.4,15.25 11.94,14.79 10.57,13.81M11.2,8.87C11.2,
+                7.85 10.57,5.85 9.12,5.85C8.5,5.85 7.8,6.29 7.8,7.5C7.8,8.7 8.42,10.45 9.77,10.45C9.83,10.45 11.2,
+                10.44 11.2,8.87Z"></path>
+            </svg>
+        </a>
+
+        <!-- LinkedIn Icon/Link -->
+        <a href="https://www.linkedin.com/pub/asher-baltzell/a3/8ab/52a">
+            <svg id="li" class="icon" xmlns="http://www.w3.org/2000/svg"
+                 version="1.1" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M19,19H16V13.7A1.5,1.5 0 0,0 14.5,12.2A1.5,1.5 0 0,0 13,13.7V19H10V10H13V11.2C13.5,10.36 14.59,
+                9.8 15.5,9.8A3.5,3.5 0 0,1 19,13.3M6.5,8.31C5.5,8.31 4.69,7.5 4.69,6.5A1.81,1.81 0 0,1 6.5,4.69C7.5,
+                4.69 8.31,5.5 8.31,6.5A1.81,1.81 0 0,1 6.5,8.31M8,19H5V10H8M20,2H4C2.89,2 2,2.89 2,4V20A2,2 0 0,0 4,
+                22H20A2,2 0 0,0 22,20V4C22,2.89 21.1,2 20,2Z"></path>
+            </svg>
+        </a>
+
+        <!-- GitHub Icon/Link -->
+        <a href="https://github.com/asherkhb">
+            <svg id="gh" class="icon" xmlns="http://www.w3.org/2000/svg"
+                 version="1.1" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M4,2H20A2,2 0 0,1 22,4V20A2,2 0 0,1 20,22H14.85C14.5,21.92 14.5,21.24 14.5,21V18.26C14.5,
+                17.33 14.17,16.72 13.81,16.41C16.04,16.16 18.38,15.32 18.38,11.5C18.38,10.39 18,9.5 17.35,8.79C17.45,
+                8.54 17.8,7.5 17.25,6.15C17.25,6.15 16.41,5.88 14.5,7.17C13.71,6.95 12.85,6.84 12,6.84C11.15,6.84 10.29,
+                6.95 9.5,7.17C7.59,5.88 6.75,6.15 6.75,6.15C6.2,7.5 6.55,8.54 6.65,8.79C6,9.5 5.62,10.39 5.62,11.5C5.62,
+                15.31 7.95,16.17 10.17,16.42C9.89,16.67 9.63,17.11 9.54,17.76C8.97,18 7.5,18.45 6.63,16.93C6.63,16.93 6.1,
+                15.97 5.1,15.9C5.1,15.9 4.12,15.88 5,16.5C5,16.5 5.68,16.81 6.14,17.97C6.14,17.97 6.73,19.91 9.5,
+                19.31V21C9.5,21.24 9.5,21.92 9.14,22H4A2,2 0 0,1 2,20V4A2,2 0 0,1 4,2Z"></path>
+            </svg>
+        </a>
+
+    </div>
+</body>
+</html>

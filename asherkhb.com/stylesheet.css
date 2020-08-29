@@ -1,0 +1,102 @@
+body {
+    margin: 2%;
+    padding: 2%;
+}
+
+/* Start Tile Styling */
+.start {
+    font-size: 0px;
+    width: 220px;
+    height: 220px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.start_block {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    margin: 5px;
+}
+
+#block1 {
+    display:none;
+    float: left;
+}
+
+#block2 {
+    display:none;
+    float: right;
+}
+
+#block3 {
+    display:none;
+    float: right;
+}
+
+#block4 {
+    display:none;
+    float: left;
+}
+
+/* Text Styling */
+.txt {
+    display: none;
+    font-family: sans-serif;
+    text-align: center;
+    color: #333333;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    width: 100%;
+}
+
+#name {
+    font-size: 28px;
+    padding-bottom: 0;
+    margin-bottom: 5px;
+}
+
+#about {
+    font-size: 18px;
+    font-weight: normal;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+/* Social Network Styling */
+.social {
+    font-size: 0px;
+    text-align: center;
+    width: 250px;
+    height: 32px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+}
+
+#fb {
+    display: none;
+    fill: #666666;
+}
+
+#gp {
+    display: none;
+    fill: #666666;
+}
+
+#li {
+    display: none;
+    fill: #666666;
+}
+
+#gh {
+    display: none;
+    fill: #666666;
+}
