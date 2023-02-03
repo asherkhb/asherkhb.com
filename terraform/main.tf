@@ -16,6 +16,10 @@ data "aws_s3_bucket" "s3_access_logs" {
   bucket = "logs.asherkhb.com"
 }
 
+data "aws_cloudfront_distribution" "asherkhb_dot_com" {
+  id = "E331H2G0YIO6E7"
+}
+
 # website bucket
 
 resource "aws_s3_bucket" "main" {
@@ -128,8 +132,8 @@ resource "aws_route53_record" "a_main" {
   name    = var.domain
   type    = "A"
   alias {
-    name                   = "s3-website-us-east-1.amazonaws.com"
-    zone_id                = aws_s3_bucket.main.hosted_zone_id
+    name                   = data.aws_cloudfront_distribution.asherkhb_dot_com.domain_name
+    zone_id                = data.aws_cloudfront_distribution.asherkhb_dot_com.hosted_zone_id
     evaluate_target_health = false
   }
 }
